@@ -26,7 +26,7 @@
 
 <h2>New book</h2>
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
+  <%= @book.errors.count %>error prohibited this book from being saved:
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -35,7 +35,7 @@
 <% end %>
 
 
-<%= form_with model: @book, local: true do |f| %>
+<%= form_with model: @book, url: '/books' ,method: :post, local: true do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
